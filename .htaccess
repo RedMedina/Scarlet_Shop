@@ -1,0 +1,9 @@
+Options +Multiviews
+
+RewriteEngine On
+RewriteBase /Scarlet_Shop/public
+
+# Reescribir la URL para mostrarla como "Scarlet_Shop/public/Login"
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]

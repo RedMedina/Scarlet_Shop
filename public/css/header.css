@@ -1,0 +1,115 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  }
+  
+  /* Estilos del encabezado */
+  header {
+    background-color: #232f3e;
+    padding: 10px;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo a {
+    color: #ffffff;
+    font-size: 24px;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .search-bar input[type="text"] {
+    width: 400px;
+    height: 25px;
+    padding: 5px;
+    border: none;
+  }
+  
+  .search-bar button[type="submit"] {
+    background-color: #f90;
+    color: #ffffff;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    height: 35px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .search-bar button[type="button"] {
+    background-color: rgb(229, 229, 229);
+    color: #333333;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    height: 35px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+ .user-options
+ {
+    display: flex;
+    align-items: center;    
+ }
+
+  .user-options a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .categories-items 
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;   
+    color: #ffffff;
+    padding: 15px;
+    margin-right: 90px;
+    max-width: 650px;
+    min-width: 650px;
+  }
+
+  .categories-items ul li a
+  {
+    text-decoration: underline;
+    color: #ffffff;
+  }
+
+  .categories-items ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .categories-items ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  .categories-text
+  {
+    font-weight: bold;
+    font-size: 14px;
+  }
