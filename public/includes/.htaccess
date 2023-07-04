@@ -1,0 +1,8 @@
+# Bloquear el acceso directo a los archivos y directorios
+Options -Indexes
+
+# Permitir peticiones AJAX
+<FilesMatch "\.(html|php|js)$">
+    Order deny,allow
+    Allow from all
+</FilesMatch>
