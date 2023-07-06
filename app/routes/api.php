@@ -18,7 +18,8 @@ function Redirect($Link)
     }
 }
 
-$routes->Create('/Login', 'html/Login.php');
-$routes->Create('/SignUp', '../app/views/SignUp_view.php');
+$routes->Create('/Login', 'html/Login.php', null);
+$routes->Create('/SignUp', '../app/views/SignUp_view.php', null);
+$routes->Create('/porfile', '../app/views/Porfile_view.php', ['Authsession']);
 
 ?>

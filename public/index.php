@@ -20,6 +20,10 @@ if (isset($_GET['url']))
     {
         echo 'error 404 xd';
     }
+    else if($app_token==='403')
+    {
+        echo 'error 403 xd';
+    }
     else
     {
         include($app_token['file']);

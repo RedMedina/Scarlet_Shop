@@ -2,7 +2,14 @@
 Options -Indexes
 
 # Permitir peticiones AJAX
-<FilesMatch "\.(html|php|js)$">
+<FilesMatch "\.(html|php|js|jpg|jpeg|png|gif)$">
     Order deny,allow
     Allow from all
 </FilesMatch>
+
+##RewriteEngine On
+##RewriteRule ^../../public/img/users-imgs/.*$ user-reg.include.php [L]
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^../../public/img/users-imgs/.*$
+RewriteRule ^(.*)$ user-reg.include.php [L]
