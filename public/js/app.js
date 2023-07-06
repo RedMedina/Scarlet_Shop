@@ -11,6 +11,7 @@ function SignUp()
     var fullname = $('#name').val();
     var email = $('#email').val();
     var password = $('#password').val();
+    var confirm_password = $('#Cpassword').val();
     var Active = $('#Create_User').val();
     var file_data = $('#photo').prop('files')[0]; 
     var formData = new FormData();
@@ -19,6 +20,7 @@ function SignUp()
     formData.append('email', email);
     formData.append('key', password);
     formData.append('active', Active);
+    formData.append('Cpassword', confirm_password);
     var dataToSend = { active: true, fullname: fullname , email: email, key: password};
     var Json = JSON.stringify(dataToSend);
     $.ajax({

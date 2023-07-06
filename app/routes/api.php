@@ -21,5 +21,6 @@ function Redirect($Link)
 $routes->Create('/Login', 'html/Login.php', null);
 $routes->Create('/SignUp', '../app/views/SignUp_view.php', null);
 $routes->Create('/porfile', '../app/views/Porfile_view.php', ['Authsession']);
+$routes->Create('/Logout', '../app/views/Logout_view.php', ['Authsession']);
 
 ?>

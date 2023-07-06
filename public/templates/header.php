@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/signup.css">
 </head>
 <body>
+  <?php session_start(); ?>
  <header>
     <div class="header-container">
       <div class="logo">
@@ -23,8 +24,16 @@
         <button type="submit">Search</button>
       </div>
       <div class="user-options">
+        <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){?>
+        <a href=<?php Redirect("/porfile"); ?>><img src=<?php echo $_SESSION['photo'];?> alt='user' width=20 height=20><?php echo $_SESSION['fullname']; ?></a>
+        <a href=<?php Redirect("/Logout"); ?>><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Log out</a>
+        <?php
+          }
+          else{
+        ?>
         <a href=<?php Redirect("/Login"); ?>><i class="fa-solid fa-user" style="color: #ffffff;"></i> Login</a>
         <a href=<?php Redirect("/SignUp"); ?>><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Sign Up</a>
+        <?php } ?>
       </div>
     </div>
     <center>

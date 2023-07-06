@@ -5,18 +5,30 @@ include ('../../app/controllers/user-controller.php');
 
 if(isset($_POST['active']))
 {
-    $targetDir = '../../public/img/users-imgs/';
-    $targetFile = $targetDir . basename($_FILES['file']['name']);
-    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-    $maxFileSize = 5000000; //5MB
-    $allowedFileTypes = array('jpg', 'jpeg', 'png', 'gif');
-
-    if(getimagesize($_FILES['file']['tmp_name']) == true && file_exists($targetFile) == false && $_FILES['file']['size'] < $maxFileSize
-       && in_array($imageFileType, $allowedFileTypes) == true)
+    if(isset($_FILES['file']))
     {
-        move_uploaded_file($_FILES['file']['tmp_name'], $targetFile);
-        $userController = new user_controller();
-        $userController->Create($_POST['fullname'], $_POST['email'], $_POST['key'], $targetFile);
+        $targetDir = '../../public/img/users-imgs/';
+        $uuid = mt_rand() . uniqid();
+        $uuid = substr($uuid, 0, 10);
+        $targetFile = $targetDir . basename($_FILES['file']['name']);
+        $savefile = 'img/users-imgs/' . $uuid;
+        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+        $maxFileSize = 10000000; //10MB
+        $allowedFileTypes = array('jpg', 'jpeg', 'png', 'gif');
+    
+        if(getimagesize($_FILES['file']['tmp_name']) == true && file_exists($targetDir.$uuid) == false && $_FILES['file']['size'] < $maxFileSize
+           && in_array($imageFileType, $allowedFileTypes) == true && $_POST['key'] == $_POST['Cpassword'])
+        {
+            $userController = new user_controller();
+            if($userController->Create($_POST['fullname'], $_POST['email'], $_POST['key'], $savefile.'.'.$imageFileType))
+            {
+                move_uploaded_file($_FILES['file']['tmp_name'], $targetDir.$uuid.'.'.$imageFileType);
+            }
+        }
+        else
+        {
+            echo 'creacion fallida img';
+        }
     }
 }
 else

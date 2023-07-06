@@ -26,7 +26,7 @@ class User_model extends User_middleware
     protected $active;
     protected $photo;
     protected $id;
-    protected $array_data = array();
+    //protected $array_data = array();
    
     public function VerifyData()
     {
@@ -43,6 +43,7 @@ class User_model extends User_middleware
                     if(!parent::EmptyData($values[$i]['val']))
                     {
                         $correct = false;
+                        echo 'fail dato vacio: '. $names[$i];
                     }
                 }
                 if($values[$i]['mail'] == true)
@@ -50,6 +51,7 @@ class User_model extends User_middleware
                     if(!parent::Email($values[$i]['val']))
                     {
                         $correct = false;
+                        echo 'fail dato mail: '. $names[$i];
                     }
                 }
                 if($values[$i]['password'] == true)
@@ -57,6 +59,7 @@ class User_model extends User_middleware
                     if(!parent::Password($values[$i]['val']))
                     {
                         $correct = false;
+                        echo 'fail dato password: '. $names[$i];
                     }
                 }
            }

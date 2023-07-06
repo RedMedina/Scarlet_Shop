@@ -20,7 +20,6 @@ if($response->active == true)
         $_SESSION['photo'] = $user['photo'];
 
         echo 'sesion iniciada';
-        echo var_dump($user);
     }
     else
     {
