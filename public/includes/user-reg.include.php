@@ -23,11 +23,13 @@ if(isset($_POST['active']))
             if($userController->Create($_POST['fullname'], $_POST['email'], $_POST['key'], $savefile.'.'.$imageFileType))
             {
                 move_uploaded_file($_FILES['file']['tmp_name'], $targetDir.$uuid.'.'.$imageFileType);
+                echo json_encode(array("message" => 'Usuario registrado correctamente!', 'signal' => 0, 'correct' => 'success'));
             }
         }
         else
         {
-            echo 'creacion fallida img';
+            //echo 'creacion fallida img';
+            echo json_encode(array("message" => 'Error subiendo la imagén', 'signal' => 1, 'correct' => 'error'));
         }
     }
 }

@@ -34,12 +34,10 @@ class user_controller extends User_model
             $Statement->close();
             $conection->Close();
 
-            echo 'insert correcto';
             return true;
         }
         else
         {
-            echo 'creacion fallida';
             return false;
         }
         return false;

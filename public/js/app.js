@@ -34,6 +34,13 @@ function SignUp()
         success: function(response)
         {
             console.log(response);
+            var JsonResponse = JSON.parse(response);
+            Swal.fire({
+                background: '#232f3e',
+                timer: 1500,
+                icon: JsonResponse.correct,
+                html: '<p style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: #ffffff; font-size: 25px; font-weight: bold;">'+JsonResponse.message+'</p>'
+            })
         }
     });
 }
@@ -52,6 +59,13 @@ function login()
         success: function(response)
         {
             console.log(response);
+            var JsonResponse = JSON.parse(response);
+            Swal.fire({
+                background: '#232f3e',
+                timer: 1500,
+                icon: JsonResponse.correct,
+                html: '<p style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: #ffffff; font-size: 25px; font-weight: bold;">'+JsonResponse.message+'</p>'
+            })
         }
     });
 }

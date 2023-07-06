@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-unset ($SESSION['loggedin']);
+unset ($_SESSION['loggedin']);
 unset ($_SESSION['fullname']);
 unset ($_SESSION['mail']);
 unset ($_SESSION['uuid']);

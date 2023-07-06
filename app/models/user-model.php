@@ -43,7 +43,8 @@ class User_model extends User_middleware
                     if(!parent::EmptyData($values[$i]['val']))
                     {
                         $correct = false;
-                        echo 'fail dato vacio: '. $names[$i];
+                        //echo 'fail dato vacio: '. $names[$i];
+                        echo json_encode(array("message" => 'Dato ' . $values[$i]['val'] . ' vacío', 'signal' => 2, 'correct' => 'error'));
                     }
                 }
                 if($values[$i]['mail'] == true)
@@ -51,7 +52,8 @@ class User_model extends User_middleware
                     if(!parent::Email($values[$i]['val']))
                     {
                         $correct = false;
-                        echo 'fail dato mail: '. $names[$i];
+                        //echo 'fail dato mail: '. $names[$i];
+                        echo json_encode(array("message" => 'Correo ' . $values[$i]['val'] . ' con formato incorrecto', 'signal' => 3, 'correct' => 'error'));
                     }
                 }
                 if($values[$i]['password'] == true)
@@ -59,7 +61,8 @@ class User_model extends User_middleware
                     if(!parent::Password($values[$i]['val']))
                     {
                         $correct = false;
-                        echo 'fail dato password: '. $names[$i];
+                        //echo 'fail dato password: '. $names[$i];
+                        echo json_encode(array("message" => 'Contraseña con formato incorrecto', 'signal' => 4, 'correct' => 'error'));
                     }
                 }
            }
