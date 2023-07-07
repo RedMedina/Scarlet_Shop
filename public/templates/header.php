@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/porfile.css">
 </head>
 <body>
   <?php session_start(); ?>

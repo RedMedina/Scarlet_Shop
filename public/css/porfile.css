@@ -1,0 +1,112 @@
+.container-porfile {
+    max-width: 700px;
+    min-width: 600px;
+    min-height: 500px;
+    max-height: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+.container-porfile .profile {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container-porfile .profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.container-porfile .profile .file-upload {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: #ff1010;
+}
+
+.container-porfile .profile h2 {
+    margin-top: 10px;
+}
+
+.container-porfile .form-group {
+    margin-bottom: 20px;
+}
+
+.container-porfile .form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.container-porfile .form-group input[type="text"],
+.container-porfile .form-group input[type="email"],
+.container-porfile .form-group input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container-porfile .form-group input[type="submit"] {
+    background-color: #f0c14b;
+    color: #111;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Estilos para el botón que abre el modal */
+.open-modal-btn {
+    background-color: #f0c14b;
+    color: #111;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Estilos para el modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Estilos para mostrar el modal */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content.active {
+    opacity: 1;
+    transform: scale(1);
+}

@@ -43,6 +43,94 @@ class user_controller extends User_model
         return false;
     }
 
+    public function update($fullname, $mail, $photo, $id)
+    {
+        $this->fullname['val'] = $fullname;
+        $this->mail['val'] = $mail;
+        $this->password = '';
+
+        if(parent::VerifyData())
+        {
+            $conection = new conection();
+            $con = $conection->contect();
+            $Statement = $con->prepare('UPDATE user SET user_name = ?, update_date = sysdate() WHERE id = ?');
+            $Statement->bind_param('ss', $mail, $id);
+            $Statement->execute();
+
+            $Statement = $con->prepare('UPDATE data_user SET name = ?, photo_url = ?, update_date = sysdate() WHERE user_id = ?');
+            $Statement->bind_param('sss', $fullname, $photo, $id);
+            $Statement->execute();
+            $Statement->close();
+            $conection->Close();
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+        return false;
+    }
+
+    public function update_password($actual_password, $new_password, $id)
+    {
+        $this->fullname = '';
+        $this->mail = '';
+        $this->password['val'] = $new_password;
+        if(parent::VerifyData())
+        {
+            $conection = new conection();
+            $con = $conection->contect();
+            $Statement = $con->prepare('SELECT user_key from user WHERE id = ?');
+            $Statement->bind_param("s", $id);
+            $Statement->execute();
+            $result = $Statement->get_result();
+            while ($row = $result->fetch_assoc())
+            {
+                if(password_verify($actual_password, $row['user_key']))
+                {
+                    if($actual_password == $new_password)
+                    {
+                        $Statement->close();
+                        $conection->Close();
+
+                        return false;
+                    }
+                    else
+                    {
+                        $Statement = $con->prepare('UPDATE user SET user_key = ?, update_date = sysdate() WHERE id = ?');
+                        $new_password = password_hash($new_password, PASSWORD_BCRYPT);
+                        $Statement->bind_param('ss', $new_password, $id);
+                        $Statement->execute();
+                        
+                        $Statement->close();
+                        $conection->Close();
+
+                        return true;
+                    }
+                }
+                else
+                {
+                    $Statement->close();
+                    $conection->Close();
+
+                    return false;
+                }
+            }
+            $Statement->close();
+            $conection->Close();
+
+            return false;
+        }
+        else
+        {
+            return false;
+        }
+
+        return false;
+    }
+
     public function login($email, $password)
     {
         $conection = new conection();

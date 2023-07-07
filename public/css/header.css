@@ -113,3 +113,11 @@ body {
     font-weight: bold;
     font-size: 14px;
   }
+
+  .style_pop
+  {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    color: #ffffff; 
+    font-size: 25px; 
+    font-weight: bold;
+  }
